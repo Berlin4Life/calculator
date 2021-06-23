@@ -44,7 +44,7 @@ public class CalculatorTest {
     public void testCalculatorCountPictures(){
         try {
             int i = calculatorApi.countPictures("src/test/resources/inputtext.txt");
-            Assert.assertEquals(0,i);
+            Assert.assertEquals(8,i);
         } catch (Exception e) {
             Assert.fail();
         }

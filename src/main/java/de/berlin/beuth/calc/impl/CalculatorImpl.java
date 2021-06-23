@@ -24,7 +24,14 @@ public class CalculatorImpl implements CalculatorApi {
     }
 
     @Override
-    public int countPictures(String inputText) throws Exception {
-        return 0;
+    public int countPictures(String fileName) throws Exception {
+
+        String text = Util.readFileAsText(fileName);
+
+        int countPicture = text.split("(?i)picture").length-1;
+
+
+
+        return countPicture;
     }
 }
