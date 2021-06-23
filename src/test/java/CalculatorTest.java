@@ -10,7 +10,7 @@ public class CalculatorTest {
     @Test
     public void testCalculatorComputePaymentByText(){
         try {
-            int i = calculatorApi.computePaymentByText("inputtext.txt");
+            int i = calculatorApi.computePaymentByText("src/test/resources/inputtext.txt");
             Assert.assertEquals(0,i);
         } catch (Exception e) {
             Assert.fail();
@@ -20,7 +20,7 @@ public class CalculatorTest {
     @Test
     public void testCalculatorCountPictures(){
         try {
-            int i = calculatorApi.countPictures("inputtext.txt");
+            int i = calculatorApi.countPictures("src/test/resources/inputtext.txt");
             Assert.assertEquals(0,i);
         } catch (Exception e) {
             Assert.fail();
