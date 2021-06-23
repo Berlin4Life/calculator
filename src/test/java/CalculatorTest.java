@@ -3,6 +3,8 @@ import de.berlin.beuth.calc.impl.CalculatorImpl;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.nio.file.AccessDeniedException;
+
 public class CalculatorTest {
 
     private CalculatorApi calculatorApi = new CalculatorImpl();
@@ -11,7 +13,7 @@ public class CalculatorTest {
     public void testCalculatorComputePaymentByText(){
         try {
             int i = calculatorApi.computePaymentByText("src/test/resources/inputtext.txt");
-            Assert.assertEquals(0,i);
+            Assert.assertTrue(i >0);
         } catch (Exception e) {
             Assert.fail();
         }
@@ -25,5 +27,11 @@ public class CalculatorTest {
         } catch (Exception e) {
             Assert.fail();
         }
+    }
+
+    @Test(expected = AccessDeniedException.class)
+    public void testCalculatorComputePaymentByTextexception() throws Exception {
+            int i = calculatorApi.computePaymentByText("");
+
     }
 }
