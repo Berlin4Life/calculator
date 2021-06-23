@@ -1,6 +1,7 @@
 package de.berlin.beuth.calc.impl;
 
 import de.berlin.beuth.calc.api.CalculatorApi;
+import de.berlin.beuth.calc.util.SizeOfText;
 import de.berlin.beuth.calc.util.Util;
 
 public class CalculatorImpl implements CalculatorApi {
@@ -11,7 +12,15 @@ public class CalculatorImpl implements CalculatorApi {
 
         int countWords = text.split(" ").length;
 
-        return countWords;
+        if(countWords < SizeOfText.SMALL.getTextSize() && countWords > 10 ){
+            return SizeOfText.SMALL.getMoney();
+        }else if(countWords < SizeOfText.MEDIUM.getTextSize() && countWords > SizeOfText.SMALL.getTextSize()){
+            return SizeOfText.MEDIUM.getMoney();
+        }else if(countWords > SizeOfText.LARGE.getTextSize()){
+            return SizeOfText.LARGE.getMoney();
+        }else{
+            throw new IllegalStateException("text to small");
+        }
     }
 
     @Override
