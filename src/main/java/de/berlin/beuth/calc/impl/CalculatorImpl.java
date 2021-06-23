@@ -9,7 +9,9 @@ public class CalculatorImpl implements CalculatorApi {
 
         String text = Util.readFileAsText(fileName);
 
-        return 0;
+        int countWords = text.split(" ").length;
+
+        return countWords;
     }
 
     @Override
